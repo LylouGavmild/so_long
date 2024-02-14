@@ -6,7 +6,7 @@
 /*   By: abutet <abutet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 11:18:53 by abutet            #+#    #+#             */
-/*   Updated: 2024/01/11 11:44:32 by abutet           ###   ########.fr       */
+/*   Updated: 2024/02/14 17:30:21 by abutet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ int	compte_cara(t_mlx *game)
 				(*game).map.c++;
 			else if (!((*game).map.map[i][j] == '1'
 				|| (*game).map.map[i][j] == '0'
-				|| (*game).map.map[i][j] == 'S'))
+				|| (*game).map.map[i][j] == 'S'
+				|| (*game).map.map[i][j] == 'R'))
 				return (0);
 			j++;
 		}

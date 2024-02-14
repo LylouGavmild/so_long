@@ -6,7 +6,7 @@
 /*   By: abutet <abutet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 17:02:40 by abutet            #+#    #+#             */
-/*   Updated: 2024/02/14 11:17:52 by abutet           ###   ########.fr       */
+/*   Updated: 2024/02/14 17:30:49 by abutet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,9 @@ void	make_case(char c, t_mlx *game, int col, int row)
 	if (c == 'B')
 		mlx_put_image_to_window((*game).mlx, (*game).win.win,
 			(*game).img.img_bb.img, row * 64, col * 64 + 128);
+	if (c == 'R')
+		mlx_put_image_to_window((*game).mlx, (*game).win.win,
+			(*game).img.img_rock.img, row * 64, col * 64 + 128);
 	if (c == 'E')
 	{
 		(*game).exit.x = row;
