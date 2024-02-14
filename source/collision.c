@@ -6,7 +6,7 @@
 /*   By: abutet <abutet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 13:32:42 by abutet            #+#    #+#             */
-/*   Updated: 2024/01/12 14:34:10 by abutet           ###   ########.fr       */
+/*   Updated: 2024/02/14 13:17:52 by abutet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,11 @@ int	sui(t_mlx *game, int x, int y)
 	tmp = (*game).senti;
 	while (tmp)
 	{
-		if (collision((*tmp).x, (*tmp).y, x, y))
-			return (1);
+		if ((*tmp).live == 1)
+		{
+			if (collision((*tmp).x, (*tmp).y, x, y))
+				return (1);
+		}	
 		tmp = (*tmp).next;
 	}
 	return (0);

@@ -6,7 +6,7 @@
 #    By: abutet <abutet@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/26 15:30:32 by abutet            #+#    #+#              #
-#    Updated: 2024/02/14 11:01:36 by abutet           ###   ########.fr        #
+#    Updated: 2024/02/14 12:43:58 by abutet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,7 @@ mlx:
 	make -sC $(MLX_PATH)
 
 $(NAME): lib mlx $(OBJ)
-	$(CC) $(OBJ) $(LIBFT_LIB) $(MLX_EX) -o $(NAME)
+	$(CC) -g $(OBJ) $(LIBFT_LIB) $(MLX_EX) -o $(NAME)
 
 clean:
 	make clean -sC $(MLX_PATH)
