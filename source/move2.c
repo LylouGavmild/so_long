@@ -6,7 +6,7 @@
 /*   By: abutet <abutet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 15:08:44 by abutet            #+#    #+#             */
-/*   Updated: 2024/02/02 13:42:33 by abutet           ###   ########.fr       */
+/*   Updated: 2024/02/13 13:49:15 by abutet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	move_anim_u(t_mlx *game)
 		if ((*game).exit.o && (*game).map.map[(*game).playeur.y]
 			[(*game).playeur.x] == 'E')
 			ft_error(game, "YOU WON\n");
-		make_case((*game).map.map[(*game).playeur.y][(*game).playeur.x],
+		make_case((*game).map.map[(*game).playeur.y + 1][(*game).playeur.x],
 			game, (*game).playeur.y + 1, (*game).playeur.x);
 		make_p('u', (*game), (*game).playeur.y, (*game).playeur.x);
 			(*game).step++;
@@ -75,7 +75,7 @@ void	move_anim_d(t_mlx *game)
 		if ((*game).exit.o && (*game).map.map[(*game).playeur.y]
 			[(*game).playeur.x] == 'E')
 			ft_error(game, "YOU WON\n");
-		make_case((*game).map.map[(*game).playeur.y][(*game).playeur.x],
+		make_case((*game).map.map[(*game).playeur.y - 1][(*game).playeur.x],
 			game, (*game).playeur.y - 1, (*game).playeur.x);
 		make_p('d', (*game), (*game).playeur.y, (*game).playeur.x);
 			(*game).step++;

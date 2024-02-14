@@ -6,7 +6,7 @@
 /*   By: abutet <abutet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 15:47:01 by abutet            #+#    #+#             */
-/*   Updated: 2024/01/31 11:32:38 by abutet           ###   ########.fr       */
+/*   Updated: 2024/02/14 11:05:48 by abutet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,10 @@ int	key_press(int keysym, t_mlx *game)
 		move_r(game);
 	else if (keysym == XK_Left)
 		move_l(game);
+	else if (keysym == XK_space)
+	{
+		write(1, "a\n", 2);
+		planto_bombo(game);
+	}
 	return (0);
 }
