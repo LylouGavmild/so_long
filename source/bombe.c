@@ -6,7 +6,7 @@
 /*   By: abutet <abutet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 10:19:34 by abutet            #+#    #+#             */
-/*   Updated: 2024/02/14 14:56:07 by abutet           ###   ########.fr       */
+/*   Updated: 2024/02/14 16:20:33 by abutet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ void	planto_bombo(t_mlx *game)
 	t_coord	*bombe;
 
 	if ((*game).playeur.b.nb < (*game).playeur.b.nb_max
-		&& (*game).map.map[(*game).playeur.y][(*game).playeur.x] != 'E')
+		&& (*game).map.map[(*game).playeur.y][(*game).playeur.x] != 'E'
+		&& (*game).map.map[(*game).playeur.y][(*game).playeur.x] != 'B')
 	{
 		bombe = ft_bnew((*game).playeur.x, (*game).playeur.y);
 		ft_badd_back(&(*game).playeur.b.coord, bombe);
