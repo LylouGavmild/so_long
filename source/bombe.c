@@ -6,7 +6,7 @@
 /*   By: abutet <abutet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 10:19:34 by abutet            #+#    #+#             */
-/*   Updated: 2024/02/14 11:04:34 by abutet           ###   ########.fr       */
+/*   Updated: 2024/02/14 11:45:33 by abutet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ t_coord	*ft_bnew(int x, int y)
 	(*b).next = NULL;
 	(*b).x = x;
 	(*b).y = y;
+	(*b).e = 1;
 	(*b).time = 0;
 	return (b);
 }
@@ -45,30 +46,40 @@ void	planto_bombo(t_mlx *game)
 {
 	t_coord	*bombe;
 
-	if ((*game).playeur.b.nb < (*game).playeur.b.nb_max)
+	if ((*game).playeur.b.nb < (*game).playeur.b.nb_max
+		&& (*game).map.map[(*game).playeur.y][(*game).playeur.x] != 'E')
 	{
 		bombe = ft_bnew((*game).playeur.x, (*game).playeur.y);
 		ft_badd_back(&(*game).playeur.b.coord, bombe);
+		(*game).map.map[(*game).playeur.y][(*game).playeur.x] = 'B';
 		mlx_put_image_to_window((*game).mlx, (*game).win.win,
-			(*game).img.img_e.img, (*bombe).x * 64, (*bombe).y * 64 + 128);
+			(*game).img.img_bb.img, (*bombe).x * 64, (*bombe).y * 64 + 128);
+		(*game).playeur.b.nb++;
 	}
 }
 
 void	chaine(t_mlx *game, t_coord *bombe)
 {
 	t_coord	*other;
+	int		i;
 
 	other = (*game).playeur.b.coord;
 	while (other)
 	{
-		if ((collision((*other).x, (*other).y, (*bombe).x + 1, (*bombe).y)
-				|| collision((*other).x, (*other).y, (*bombe).x - 1, (*bombe).y)
-				|| collision((*other).x, (*other).y, (*bombe).x, (*bombe).y + 1)
-				|| collision((*other).x, (*other).y, (*bombe).x, (*bombe).y - 1)
-			) && (*other).e)
+		i = 0;
+		while (i <= (*game).playeur.b.rayon)
 		{
-			(*other).time = (*game).playeur.b.speed;
-			spreed(game, other);
+			if ((collision((*other).x, (*other).y, (*bombe).x + i, (*bombe).y)
+					|| collision((*other).x, (*other).y, (*bombe).x - i,
+						(*bombe).y) || collision((*other).x, (*other).y,
+						(*bombe).x, (*bombe).y + i)
+					|| collision((*other).x, (*other).y, (*bombe).x,
+						(*bombe).y - i)) && (*other).e)
+			{
+				(*other).time = (*game).playeur.b.speed;
+				spreed(game, other);
+			}
+			i++;
 		}
 		other = (*other).next;
 	}
@@ -79,21 +90,21 @@ void	make_e2(t_mlx *game, t_coord *bombe)
 	int	i;
 
 	i = 0;
-	while ((*game).map.map[(*bombe).x + i][(*bombe).y] != 1
+	while ((*game).map.map[(*bombe).y][(*bombe).x + i] != '1'
 			&& i <= (*game).playeur.b.rayon)
 	{
 		mlx_put_image_to_window((*game).mlx, (*game).win.win,
-			(*game).img.img_explosion.img, (*bombe).y * 64,
-			(*bombe).x + i * 64 + 128);
+			(*game).img.img_explosion.img, ((*bombe).x + i) * 64,
+			(*bombe).y * 64 + 128);
 		i++;
 	}
 	i = 0;
-	while ((*game).map.map[(*bombe).x - i][(*bombe).y] != 1
+	while ((*game).map.map[(*bombe).y][(*bombe).x - i] != '1'
 			&& i <= (*game).playeur.b.rayon)
 	{
 		mlx_put_image_to_window((*game).mlx, (*game).win.win,
-			(*game).img.img_explosion.img, (*bombe).y * 64,
-			(*bombe).x - i * 64 + 128);
+			(*game).img.img_explosion.img, ((*bombe).x - i) * 64,
+			(*bombe).y * 64 + 128);
 		i++;
 	}
 }
@@ -103,21 +114,21 @@ void	make_e(t_mlx *game, t_coord *bombe)
 	int	i;
 
 	i = 0;
-	while ((*game).map.map[(*bombe).x][(*bombe).y + i] != 1
+	while ((*game).map.map[(*bombe).y + i][(*bombe).x] != '1'
 			&& i <= (*game).playeur.b.rayon)
 	{
 		mlx_put_image_to_window((*game).mlx, (*game).win.win,
-			(*game).img.img_p.up.img, (*bombe).y + i * 64,
-			(*bombe).x * 64 + 128);
+			(*game).img.img_explosion.img, (*bombe).x * 64,
+			((*bombe).y + i) * 64 + 128);
 		i++;
 	}
 	i = 0;
-	while ((*game).map.map[(*bombe).x][(*bombe).y - i] != 1
+	while ((*game).map.map[(*bombe).y - i][(*bombe).x] != '1'
 			&& i <= (*game).playeur.b.rayon)
 	{
 		mlx_put_image_to_window((*game).mlx, (*game).win.win,
-			(*game).img.img_p.up.img, (*bombe).y - i * 64,
-			(*bombe).x * 64 + 128);
+			(*game).img.img_explosion.img, (*bombe).x * 64,
+			((*bombe).y - i) * 64 + 128);
 		i++;
 	}
 	make_e2(game, bombe);
@@ -126,15 +137,21 @@ void	make_e(t_mlx *game, t_coord *bombe)
 void	spreed(t_mlx *game, t_coord *bombe)
 {
 	t_s		*tmp;
+	int		i;
 
 	tmp = (*game).senti;
 	while (tmp)
 	{
-		if (collision((*tmp).x, (*tmp).y, (*bombe).x + 1, (*bombe).y)
-			|| collision((*tmp).x, (*tmp).y, (*bombe).x - 1, (*bombe).y)
-			|| collision((*tmp).x, (*tmp).y, (*bombe).x, (*bombe).y + 1)
-			|| collision((*tmp).x, (*tmp).y, (*bombe).x, (*bombe).y - 1))
-			(*tmp).live = 0;
+		i = 0;
+		while (i <= (*game).playeur.b.rayon)
+		{
+			if (collision((*tmp).x, (*tmp).y, (*bombe).x + i, (*bombe).y)
+				|| collision((*tmp).x, (*tmp).y, (*bombe).x - i, (*bombe).y)
+				|| collision((*tmp).x, (*tmp).y, (*bombe).x, (*bombe).y + i)
+				|| collision((*tmp).x, (*tmp).y, (*bombe).x, (*bombe).y - i))
+				(*tmp).live = 0;
+			i++;
+		}
 		tmp = (*tmp).next;
 	}
 	(*bombe).e = 0;

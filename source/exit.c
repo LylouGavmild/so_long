@@ -6,7 +6,7 @@
 /*   By: abutet <abutet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:52:25 by abutet            #+#    #+#             */
-/*   Updated: 2024/02/02 13:27:14 by abutet           ###   ########.fr       */
+/*   Updated: 2024/02/14 11:27:53 by abutet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,7 @@ int	main_loop(t_mlx *game)
 	main_senti(game);
 	if ((*game).exit.o != 2)
 		exit_anim(game);
+	if ((*game).playeur.b.coord)
+		explosion(game);
 	return (1);
 }

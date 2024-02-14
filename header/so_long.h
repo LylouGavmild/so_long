@@ -6,7 +6,7 @@
 /*   By: abutet <abutet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 10:25:28 by abutet            #+#    #+#             */
-/*   Updated: 2024/02/14 11:03:15 by abutet           ###   ########.fr       */
+/*   Updated: 2024/02/14 11:27:40 by abutet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,5 +205,6 @@ void			s_rand(t_mlx *game, t_s *senti);
 void			destroy_img(t_mlx *game);
 void			planto_bombo(t_mlx *game);
 void			spreed(t_mlx *game, t_coord *bombe);
+void			explosion(t_mlx *game);
 
 #endif

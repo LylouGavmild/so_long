@@ -6,7 +6,7 @@
 /*   By: abutet <abutet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 17:02:40 by abutet            #+#    #+#             */
-/*   Updated: 2024/01/24 15:43:39 by abutet           ###   ########.fr       */
+/*   Updated: 2024/02/14 11:17:52 by abutet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,20 +40,20 @@ void	map_maker(t_mlx *game)
 void	make_case(char c, t_mlx *game, int col, int row)
 {
 	if (c == '1')
-	{
 		mlx_put_image_to_window((*game).mlx, (*game).win.win,
 			(*game).img.img_wall.img, row * 64, col * 64 + 128);
-	}
 	if (c == '0' || c == 'S' || c == 'P')
-	{
 		mlx_put_image_to_window((*game).mlx, (*game).win.win,
 			(*game).img.img_sol.img, row * 64, col * 64 + 128);
-	}
 	if (c == 'C')
-	{
 		mlx_put_image_to_window((*game).mlx, (*game).win.win,
 			(*game).img.img_c.img, row * 64, col * 64 + 128);
-	}
+	if (c == 'R')
+		mlx_put_image_to_window((*game).mlx, (*game).win.win,
+			(*game).img.img_rock.img, row * 64, col * 64 + 128);
+	if (c == 'B')
+		mlx_put_image_to_window((*game).mlx, (*game).win.win,
+			(*game).img.img_bb.img, row * 64, col * 64 + 128);
 	if (c == 'E')
 	{
 		(*game).exit.x = row;
@@ -66,25 +66,17 @@ void	make_case(char c, t_mlx *game, int col, int row)
 void	make_p(char c, t_mlx game, int col, int row)
 {
 	if (c == 'u')
-	{
 		mlx_put_image_to_window(game.mlx, game.win.win,
 			game.img.img_p.up.img, row * 64, col * 64 + 128);
-	}
 	if (c == 'd')
-	{
 		mlx_put_image_to_window(game.mlx, game.win.win,
 			game.img.img_p.down.img, row * 64, col * 64 + 128);
-	}
 	if (c == 'l')
-	{
 		mlx_put_image_to_window(game.mlx, game.win.win,
 			game.img.img_p.left.img, row * 64, col * 64 + 128);
-	}
 	if (c == 'r')
-	{
 		mlx_put_image_to_window(game.mlx, game.win.win,
 			game.img.img_p.right.img, row * 64, col * 64 + 128);
-	}
 }
 
 void	make_s(t_mlx *game, int col, int row)
