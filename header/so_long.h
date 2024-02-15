@@ -6,7 +6,7 @@
 /*   By: abutet <abutet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 10:25:28 by abutet            #+#    #+#             */
-/*   Updated: 2024/02/15 12:42:28 by abutet           ###   ########.fr       */
+/*   Updated: 2024/02/15 13:29:00 by abutet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ typedef struct s_img_list
 	t_img		img_bb;
 	t_img		img_explosion;
 	t_img		img_rock;
+	t_img		img_pouf;
 }				t_img_list;
 
 typedef struct s_win
@@ -207,6 +208,7 @@ void			planto_bombo(t_mlx *game);
 void			spreed(t_mlx *game, t_coord *bombe);
 void			explosion(t_mlx *game);
 void			rock(t_mlx *game, t_coord *bombe);
+void			pouf(t_mlx *game, t_coord *bombe);
 void			kill(t_mlx *game, t_coord *bombe);
 void			ff(t_mlx *game, t_coord *bombe);
 void			chaine(t_mlx *game, t_coord *bombe);

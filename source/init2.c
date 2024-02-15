@@ -6,7 +6,7 @@
 /*   By: abutet <abutet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 11:22:54 by abutet            #+#    #+#             */
-/*   Updated: 2024/02/14 13:25:12 by abutet           ###   ########.fr       */
+/*   Updated: 2024/02/15 13:27:25 by abutet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,7 @@ void	img_null2(t_mlx *game)
 	(*game).img.img_bb.img = NULL;
 	(*game).img.img_explosion.img = NULL;
 	(*game).img.img_rock.img = NULL;
-	(*game).playeur.b.coord = NULL;
-	(*game).playeur.b.speed = 80000;
-	(*game).playeur.b.nb_max = 2;
-	(*game).playeur.b.nb = 0;
-	(*game).playeur.b.rayon = 3;
+	(*game).img.img_pouf.img = NULL;
 }
 
 void	img_null(t_mlx *game)
@@ -74,6 +70,11 @@ void	init_null(t_mlx *game)
 	(*game).senti = NULL;
 	(*game).step = 0;
 	(*game).exit.o = 0;
+	(*game).playeur.b.coord = NULL;
+	(*game).playeur.b.speed = 80000;
+	(*game).playeur.b.nb_max = 2;
+	(*game).playeur.b.nb = 0;
+	(*game).playeur.b.rayon = 3;
 }
 
 void	win_init(t_mlx *game)

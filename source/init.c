@@ -6,7 +6,7 @@
 /*   By: abutet <abutet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 16:17:37 by abutet            #+#    #+#             */
-/*   Updated: 2024/02/07 09:49:46 by abutet           ###   ########.fr       */
+/*   Updated: 2024/02/15 13:27:44 by abutet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void	img_init2(t_mlx *game)
 	set_img(game, &(*game).img.img_bb, "sprite/bombe.xpm");
 	set_img(game, &(*game).img.img_explosion, "sprite/explosion.xpm");
 	set_img(game, &(*game).img.img_rock, "sprite/rock.xpm");
+	set_img(game, &(*game).img.img_pouf, "sprite/pouf.xpm");
 }
 
 void	img_init(t_mlx *game)

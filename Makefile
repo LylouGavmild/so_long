@@ -6,7 +6,7 @@
 #    By: abutet <abutet@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/26 15:30:32 by abutet            #+#    #+#              #
-#    Updated: 2024/02/15 12:43:57 by abutet           ###   ########.fr        #
+#    Updated: 2024/02/15 13:22:37 by abutet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ MLX_EX		=	$(MLX_LIB) $(MLX_FLAG)
 C_FILE		=	main.c map_maker.c destroy.c destroy2.c read_map.c move.c map_check.c compte_cara.c \
 				init.c init2.c error.c check_path.c sentinelle.c collision.c HUD.c HUD2.c exit.c \
 				move2.c move3.c sentinelle2.c destroy_img.c bombe_init.c bombe_chaine.c bombe_kill.c \
-				bombe_spreed.c bombe_utils1.c bombe_rock.c
+				bombe_spreed.c bombe_utils1.c bombe_rock.c bombe_pouf.c
 
 SRC_DIR		=	./source/
 

@@ -6,7 +6,7 @@
 /*   By: abutet <abutet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 10:19:34 by abutet            #+#    #+#             */
-/*   Updated: 2024/02/15 13:13:06 by abutet           ###   ########.fr       */
+/*   Updated: 2024/02/15 13:31:45 by abutet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,10 @@ void	spreed(t_mlx *game, t_coord *bombe)
 	chaine(game, bombe);
 	ff(game, bombe);
 	if ((*bombe).time == (*game).playeur.b.speed)
+	{
 		make_e(game, bombe);
+		pouf(game, bombe);
+	}
 }
 
 void	explosion(t_mlx *game)
