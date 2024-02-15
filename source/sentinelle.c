@@ -6,11 +6,36 @@
 /*   By: abutet <abutet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 16:00:49 by abutet            #+#    #+#             */
-/*   Updated: 2024/02/15 12:46:36 by abutet           ###   ########.fr       */
+/*   Updated: 2024/02/15 14:43:55 by abutet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/so_long.h"
+
+void	live(t_mlx *game, t_s *senti)
+{
+	if ((*senti).time < 2750)
+		make_case((*game).map.map[(*senti).y][(*senti).x], game,
+			(*senti).y, (*senti).x);
+	else
+	{
+		if ((*senti).d == 'u')
+			make_case((*game).map.map[(*senti).y + 1][(*senti).x], game,
+				(*senti).y + 1, (*senti).x);
+		if ((*senti).d == 'd')
+			make_case((*game).map.map[(*senti).y - 1][(*senti).x], game,
+				(*senti).y - 1, (*senti).x);
+		if ((*senti).d == 'l')
+			make_case((*game).map.map[(*senti).y][(*senti).x + 1], game,
+				(*senti).y, (*senti).x + 1);
+		if ((*senti).d == 'r')
+			make_case((*game).map.map[(*senti).y][(*senti).x - 1], game,
+				(*senti).y, (*senti).x - 1);
+		make_case((*game).map.map[(*senti).y][(*senti).x], game,
+			(*senti).y, (*senti).x);
+	}
+	(*senti).time = -1;
+}
 
 void	move_s(t_mlx *game, t_s *senti)
 {
@@ -52,6 +77,8 @@ int	main_senti(t_mlx *game)
 			(*tmp).time++;
 			move_s(game, tmp);
 		}
+		else if ((*tmp).live == 0 && (*tmp).time >= 0)
+			live(game, tmp);
 		tmp = (*tmp).next;
 	}
 	return (0);
