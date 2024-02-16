@@ -6,7 +6,7 @@
 /*   By: abutet <abutet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 16:00:49 by abutet            #+#    #+#             */
-/*   Updated: 2024/02/14 17:41:06 by abutet           ###   ########.fr       */
+/*   Updated: 2024/02/16 12:58:16 by abutet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	s_rand3(t_mlx *game, t_s *senti, int num)
 {
 	if ((*game).map.map[(*senti).y][(*senti).x + 1] != '1' && num == 1
 		&& !sui(game, (*senti).x + 1, (*senti).y)
-		&& (*game).map.map[(*senti).y][(*senti).x + 1] != 'R')
+		&& (*game).map.map[(*senti).y][(*senti).x + 1] != 'R'
+		&& (*game).map.map[(*senti).y][(*senti).x + 1] != 'B')
 	{
 		make_case((*game).map.map[(*senti).y][(*senti).x], game, (*senti).y,
 			(*senti).x);
@@ -28,7 +29,8 @@ void	s_rand3(t_mlx *game, t_s *senti, int num)
 	}
 	if ((*game).map.map[(*senti).y][(*senti).x - 1] != '1' && num == 3
 		&& !sui(game, (*senti).x - 1, (*senti).y)
-		&& (*game).map.map[(*senti).y][(*senti).x - 1] != 'R')
+		&& (*game).map.map[(*senti).y][(*senti).x - 1] != 'R'
+		&& (*game).map.map[(*senti).y][(*senti).x - 1] != 'B')
 	{
 		make_case((*game).map.map[(*senti).y][(*senti).x], game, (*senti).y,
 			(*senti).x);
@@ -44,7 +46,8 @@ void	s_rand2(t_mlx *game, t_s *senti, int num)
 {
 	if ((*game).map.map[(*senti).y - 1][(*senti).x] != '1' && num == 2
 		&& !sui(game, (*senti).x, (*senti).y - 1)
-		&& (*game).map.map[(*senti).y - 1][(*senti).x] != 'R')
+		&& (*game).map.map[(*senti).y - 1][(*senti).x] != 'R'
+		&& (*game).map.map[(*senti).y - 1][(*senti).x] != 'B')
 	{
 		make_case((*game).map.map[(*senti).y][(*senti).x], game, (*senti).y,
 			(*senti).x);
@@ -63,7 +66,8 @@ void	s_rand(t_mlx *game, t_s *senti)
 	num = rand() % 4;
 	if ((*game).map.map[(*senti).y + 1][(*senti).x] != '1' && num == 0
 		&& !sui(game, (*senti).x, (*senti).y + 1)
-		&& (*game).map.map[(*senti).y + 1][(*senti).x] != 'R')
+		&& (*game).map.map[(*senti).y + 1][(*senti).x] != 'R'
+		&& (*game).map.map[(*senti).y + 1][(*senti).x] != 'B')
 	{
 		make_case((*game).map.map[(*senti).y][(*senti).x], game, (*senti).y,
 			(*senti).x);

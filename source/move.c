@@ -6,7 +6,7 @@
 /*   By: abutet <abutet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 15:08:44 by abutet            #+#    #+#             */
-/*   Updated: 2024/02/14 17:34:47 by abutet           ###   ########.fr       */
+/*   Updated: 2024/02/16 12:59:57 by abutet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 void	move_u(t_mlx *game)
 {
 	if ((*game).map.map[(*game).playeur.y - 1][(*game).playeur.x] != '1'
-		&& (*game).map.map[(*game).playeur.y - 1][(*game).playeur.x] != 'R')
+		&& (*game).map.map[(*game).playeur.y - 1][(*game).playeur.x] != 'R'
+		&& (*game).map.map[(*game).playeur.y - 1][(*game).playeur.x] != 'B')
 	{
 		if ((*game).playeur.time == -1)
 		{
@@ -34,7 +35,8 @@ void	move_u(t_mlx *game)
 void	move_d(t_mlx *game)
 {
 	if ((*game).map.map[(*game).playeur.y + 1][(*game).playeur.x] != '1'
-		&& (*game).map.map[(*game).playeur.y + 1][(*game).playeur.x] != 'R')
+		&& (*game).map.map[(*game).playeur.y + 1][(*game).playeur.x] != 'R'
+		&& (*game).map.map[(*game).playeur.y + 1][(*game).playeur.x] != 'B')
 	{
 		if ((*game).playeur.time == -1)
 		{
@@ -53,7 +55,8 @@ void	move_d(t_mlx *game)
 void	move_l(t_mlx *game)
 {
 	if ((*game).map.map[(*game).playeur.y][(*game).playeur.x - 1] != '1'
-		&& (*game).map.map[(*game).playeur.y][(*game).playeur.x - 1] != 'R')
+		&& (*game).map.map[(*game).playeur.y][(*game).playeur.x - 1] != 'R'
+		&& (*game).map.map[(*game).playeur.y][(*game).playeur.x - 1] != 'B')
 	{
 		if ((*game).playeur.time == -1)
 		{
@@ -72,7 +75,8 @@ void	move_l(t_mlx *game)
 void	move_r(t_mlx *game)
 {
 	if ((*game).map.map[(*game).playeur.y][(*game).playeur.x + 1] != '1'
-		&& (*game).map.map[(*game).playeur.y][(*game).playeur.x + 1] != 'R')
+		&& (*game).map.map[(*game).playeur.y][(*game).playeur.x + 1] != 'R'
+		&& (*game).map.map[(*game).playeur.y][(*game).playeur.x + 1] != 'B')
 	{
 		if ((*game).playeur.time == -1)
 		{
