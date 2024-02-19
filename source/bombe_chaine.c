@@ -6,7 +6,7 @@
 /*   By: abutet <abutet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 10:19:34 by abutet            #+#    #+#             */
-/*   Updated: 2024/02/15 12:58:56 by abutet           ###   ########.fr       */
+/*   Updated: 2024/02/19 12:10:24 by abutet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,10 @@ void	chaine(t_mlx *game, t_coord *bombe)
 	t_coord	*other;
 	int		i;
 
-	i = 0;
 	other = (*game).playeur.b.coord;
 	while (other)
 	{
+		i = 0;
 		while ((*game).map.map[(*bombe).y + i][(*bombe).x] != '1'
 			&& i <= (*game).playeur.b.rayon
 			&& (*game).map.map[(*bombe).y + i][(*bombe).x] != 'R')

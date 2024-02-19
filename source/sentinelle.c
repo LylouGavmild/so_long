@@ -6,7 +6,7 @@
 /*   By: abutet <abutet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 16:00:49 by abutet            #+#    #+#             */
-/*   Updated: 2024/02/15 14:43:55 by abutet           ###   ########.fr       */
+/*   Updated: 2024/02/19 11:48:17 by abutet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	move_s(t_mlx *game, t_s *senti)
 		s_rand(game, senti);
 		if (collision((*senti).x, (*senti).y, (*game).playeur.x,
 				(*game).playeur.y))
-			ft_error(game, "TOULOUSE\n");
+			ft_win(game, "TOULOUSE\n");
 	}
 	if ((*senti).time == 5500)
 	{

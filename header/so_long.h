@@ -6,7 +6,7 @@
 /*   By: abutet <abutet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 10:25:28 by abutet            #+#    #+#             */
-/*   Updated: 2024/02/15 13:29:00 by abutet           ###   ########.fr       */
+/*   Updated: 2024/02/19 11:46:18 by abutet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -214,5 +214,7 @@ void			ff(t_mlx *game, t_coord *bombe);
 void			chaine(t_mlx *game, t_coord *bombe);
 void			clean(t_mlx *game, t_coord *bombe);
 void			clean_lst(t_coord **lst, t_coord **bombe);
+void			map_len_check(t_mlx *game);
+void			ft_win(t_mlx *game, char *msg);
 
 #endif

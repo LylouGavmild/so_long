@@ -6,7 +6,7 @@
 /*   By: abutet <abutet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 15:47:01 by abutet            #+#    #+#             */
-/*   Updated: 2024/02/14 11:28:31 by abutet           ###   ########.fr       */
+/*   Updated: 2024/02/19 12:02:16 by abutet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,24 +44,27 @@ int	main(int argc, char **argv)
 {
 	t_mlx	game;
 
-	if (argc == 2)
+	if (argc != 2)
 	{
-		init_null(&game);
-		check_path(&game, argv[1]);
-		game.mlx = mlx_init();
-		if (game.mlx == NULL)
-			ft_error(&game, "mlx crash\n");
-		img_init(&game);
-		map_init(&game.map, game.path);
-		map_check(&game);
-		win_init(&game);
-		hud(&game);
-		map_maker(&game);
-		mlx_hook(game.win.win, KeyPress, KeyPressMask, &key_press, &game);
-		mlx_hook(game.win.win, DestroyNotify, NoEventMask, &end, &game);
-		mlx_loop_hook(game.mlx, &main_loop, &game);
-		mlx_loop(game.mlx);
+		write(1, "Error\ninvalid number of arguments\n", 34);
+		exit(0);
 	}
+	init_null(&game);
+	check_path(&game, argv[1]);
+	game.mlx = mlx_init();
+	if (game.mlx == NULL)
+		ft_error(&game, "mlx crash\n");
+	img_init(&game);
+	map_init(&game.map, game.path);
+	map_check(&game);
+	map_len_check(&game);
+	win_init(&game);
+	hud(&game);
+	map_maker(&game);
+	mlx_hook(game.win.win, KeyPress, KeyPressMask, &key_press, &game);
+	mlx_hook(game.win.win, DestroyNotify, NoEventMask, &end, &game);
+	mlx_loop_hook(game.mlx, &main_loop, &game);
+	mlx_loop(game.mlx);
 	return (0);
 }
 

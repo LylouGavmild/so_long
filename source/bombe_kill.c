@@ -6,7 +6,7 @@
 /*   By: abutet <abutet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 10:19:34 by abutet            #+#    #+#             */
-/*   Updated: 2024/02/15 12:52:41 by abutet           ###   ########.fr       */
+/*   Updated: 2024/02/19 12:11:11 by abutet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,10 @@ void	kill(t_mlx *game, t_coord *bombe)
 	t_s	*tmp;
 	int	i;
 
-	i = 0;
 	tmp = (*game).senti;
 	while (tmp)
 	{
+		i = 0;
 		while ((*game).map.map[(*bombe).y + i][(*bombe).x] != '1'
 			&& i <= (*game).playeur.b.rayon
 				&& (*game).map.map[(*bombe).y + i][(*bombe).x] != 'R')

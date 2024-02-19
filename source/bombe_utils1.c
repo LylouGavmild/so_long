@@ -6,7 +6,7 @@
 /*   By: abutet <abutet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 10:19:34 by abutet            #+#    #+#             */
-/*   Updated: 2024/02/15 11:31:26 by abutet           ###   ########.fr       */
+/*   Updated: 2024/02/19 11:47:10 by abutet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ff2(t_mlx *game, t_coord *bombe)
 	{
 		if (collision((*game).playeur.x, (*game).playeur.y, (*bombe).x + i,
 				(*bombe).y))
-			ft_error(game, "MACRON EXPLOSION\n");
+			ft_win(game, "MACRON EXPLOSION\n");
 		i++;
 	}
 	i = 0;
@@ -33,7 +33,7 @@ void	ff2(t_mlx *game, t_coord *bombe)
 	{
 		if (collision((*game).playeur.x, (*game).playeur.y, (*bombe).x - i,
 				(*bombe).y))
-			ft_error(game, "MACRON EXPLOSION\n");
+			ft_win(game, "MACRON EXPLOSION\n");
 		i++;
 	}
 }
@@ -49,7 +49,7 @@ void	ff(t_mlx *game, t_coord *bombe)
 	{
 		if (collision((*game).playeur.x, (*game).playeur.y, (*bombe).x,
 				(*bombe).y + i))
-			ft_error(game, "MACRON EXPLOSION\n");
+			ft_win(game, "MACRON EXPLOSION\n");
 		i++;
 	}
 	i = 0;
@@ -59,7 +59,7 @@ void	ff(t_mlx *game, t_coord *bombe)
 	{
 		if (collision((*game).playeur.x, (*game).playeur.y, (*bombe).x,
 				(*bombe).y - i))
-			ft_error(game, "MACRON EXPLOSION\n");
+			ft_win(game, "MACRON EXPLOSION\n");
 		i++;
 	}
 	ff2(game, bombe);
